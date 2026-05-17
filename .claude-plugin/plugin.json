@@ -1,0 +1,51 @@
+{
+  "name": "global-tax-governance",
+  "version": "0.1.0",
+  "description": "Tax governance skill library for senior practitioners — Pillar Two, transfer pricing, TCF, DAC, CbCR, audit defense, AI Act in the tax function. Thirteen skills with six transversal critics (reviewer note · citation exactness · currency watch · decision tree · finding state · cross-matter leak). Jurisdiction-agnostic profile customizable through a cold-start interview; Spain ships as the seed profile.",
+  "author": {
+    "name": "SoyDonOnega"
+  },
+  "homepage": "https://github.com/SoyDonOnega/global-tax-governance",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SoyDonOnega/global-tax-governance.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SoyDonOnega/global-tax-governance/issues"
+  },
+  "license": "MIT",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/post_task.py"
+          }
+        ]
+      }
+    ]
+  },
+  "keywords": [
+    "tax",
+    "tax-governance",
+    "tax-function",
+    "tax-strategy",
+    "pilar-dos",
+    "pillar-two",
+    "globe",
+    "transfer-pricing",
+    "international-taxation",
+    "tax-advice",
+    "corporate-taxation",
+    "tcf",
+    "dac",
+    "cbcr",
+    "ai-act",
+    "big-four",
+    "multinational",
+    "harness",
+    "multi-agent"
+  ]
+}

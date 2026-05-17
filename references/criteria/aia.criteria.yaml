@@ -1,0 +1,26 @@
+deliverable_type: ai-impact-assessment
+metrics:
+  - id: ai_act_classification_literal
+    rule: classification (prohibido/alto-riesgo/limitado/mínimo/GPAI) backed by literal test (art. 5 / Anexo III / art. 50) — not intuition
+    severity: blocker
+  - id: provider_deployer_separation
+    rule: provider (art. 16) and deployer (art. 26) obligations separately addressed
+    severity: blocker
+  - id: art_22_rgpd_analysis
+    rule: art. 22 RGPD analyzed (decisión automatizada + excepción 22.2.b + garantías mínimas)
+    severity: blocker
+  - id: lgt_taxpayer_rights
+    rule: art. 34 LGT + art. 102 LGT (motivación) addressed for AEAT-side use cases
+    severity: blocker
+  - id: doctrinal_citation
+    rule: Mosquera et al. Intertax 53(11) 2025 cited where AEAT selector or taxpayers rights are involved
+    severity: high
+  - id: tjue_jurisprudence
+    rule: TJUE Berlioz C-682/15 and posteriores cited where foreseeable relevance / information exchange involved
+    severity: high
+  - id: high_risk_requirements
+    rule: for high-risk systems, arts. 9-15 AI Act checklist applied
+    severity: blocker
+  - id: currency_check
+    rule: AI Act timeline against currency-watch (Digital Omnibus + Implementing Acts in flux)
+    severity: blocker

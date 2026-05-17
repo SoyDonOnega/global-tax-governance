@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 980" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', system-ui, sans-serif">
+  <style>
+    .title       { font-size: 22px; font-weight: 600; letter-spacing: 4px; fill: #0A0A0A; }
+    .h           { font-size: 12px; font-weight: 600; letter-spacing: 2px; fill: #0A0A0A; }
+    .sub         { font-size: 11px; fill: #666666; letter-spacing: 1px; }
+    .body        { font-size: 12px; fill: #0A0A0A; }
+    .mono        { font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace; font-size: 11px; fill: #0A0A0A; }
+    .small       { font-size: 10px; fill: #666666; }
+    .footer      { font-size: 11px; fill: #666666; letter-spacing: 1px; }
+    .box         { fill: #FFFFFF; stroke: #0A0A0A; stroke-width: 1; }
+    .box-sub     { fill: #FAFAF8; stroke: #CCCCCC; stroke-width: 1; }
+    .arrow       { stroke: #0A0A0A; stroke-width: 1; fill: none; }
+    .arrow-l     { stroke: #CCCCCC; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    .divider     { stroke: #CCCCCC; stroke-width: 1; }
+  </style>
+
+  <!-- arrowhead -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0A0A0A"/>
+    </marker>
+    <marker id="arrow-l" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#CCCCCC"/>
+    </marker>
+  </defs>
+
+  <!-- title -->
+  <text x="600" y="42" text-anchor="middle" class="title">GLOBAL TAX GOVERNANCE — RUNTIME FLOW</text>
+  <line x1="100" y1="60" x2="1100" y2="60" class="divider"/>
+
+  <!-- USER -->
+  <rect x="475" y="90"  width="250" height="50" class="box"/>
+  <text x="600" y="120" text-anchor="middle" class="h">USER · PRACTITIONER</text>
+
+  <!-- arrow user -> skill -->
+  <line x1="600" y1="140" x2="600" y2="178" class="arrow" marker-end="url(#arrow)"/>
+  <text x="610" y="163" class="mono">/global-tax-governance:&lt;skill&gt;</text>
+
+  <!-- SKILLS block -->
+  <rect x="120" y="180" width="960" height="170" class="box"/>
+  <text x="140" y="205" class="h">ACTIVE SKILL  ·  13 ENTRY POINTS</text>
+  <line x1="140" y1="216" x2="1060" y2="216" class="divider"/>
+
+  <text x="140" y="240" class="sub">CORE (3)</text>
+  <text x="140" y="260" class="mono">matter-workspace</text>
+  <text x="140" y="278" class="mono">customize</text>
+  <text x="140" y="296" class="mono">onboarding</text>
+
+  <text x="320" y="240" class="sub">FLAGSHIP TAX (8)</text>
+  <text x="320" y="260" class="mono">pillar-two-rollout</text>
+  <text x="320" y="278" class="mono">tcf-program</text>
+  <text x="320" y="296" class="mono">tp-analysis</text>
+  <text x="320" y="314" class="mono">cbcr-review</text>
+
+  <text x="520" y="240" class="sub">·</text>
+  <text x="520" y="260" class="mono">dac-reporting</text>
+  <text x="520" y="278" class="mono">audit-defense</text>
+  <text x="520" y="296" class="mono">dgt-teac-watch</text>
+  <text x="520" y="314" class="mono">ai-tax-governance</text>
+
+  <text x="720" y="240" class="sub">UTILITY (2)</text>
+  <text x="720" y="260" class="mono">excel-replicate</text>
+  <text x="720" y="278" class="mono">query-email</text>
+
+  <text x="900" y="240" class="sub">PATTERN</text>
+  <text x="900" y="260" class="body">self-contained</text>
+  <text x="900" y="278" class="body">recipe per skill</text>
+  <text x="900" y="296" class="body">(plan · draft ·</text>
+  <text x="900" y="314" class="body">adversarial pass)</text>
+
+  <!-- arrows from skill down to row 3 (3 fan-out) -->
+  <line x1="320" y1="350" x2="320" y2="408" class="arrow" marker-end="url(#arrow)"/>
+  <text x="330" y="378" class="sub">READS</text>
+  <line x1="600" y1="350" x2="600" y2="408" class="arrow" marker-end="url(#arrow)"/>
+  <text x="610" y="378" class="sub">READS</text>
+  <line x1="880" y1="350" x2="880" y2="408" class="arrow" marker-end="url(#arrow)"/>
+  <text x="890" y="378" class="sub">DELEGATES VIA TASK</text>
+
+  <!-- ROW 3 — three input/output boxes -->
+  <!-- Practice profile -->
+  <rect x="120" y="410" width="400" height="170" class="box-sub"/>
+  <text x="140" y="435" class="h">PRACTICE PROFILE</text>
+  <line x1="140" y1="446" x2="500" y2="446" class="divider"/>
+  <text x="140" y="468" class="mono">CLAUDE.md</text>
+  <text x="140" y="486" class="small">type of practice · risk posture · materiality</text>
+  <text x="140" y="500" class="small">active areas · house style · escalation matrix</text>
+  <text x="140" y="524" class="mono">references/jurisdictions/&lt;iso&gt;.md</text>
+  <text x="140" y="542" class="small">source-of-law hierarchy · citation formats</text>
+  <text x="140" y="556" class="small">tax authority · core taxes · local currency watch</text>
+  <text x="140" y="572" class="small">ships with es.md  ·  _template.md for any other iso</text>
+
+  <!-- Currency watch -->
+  <rect x="540" y="410" width="180" height="170" class="box-sub"/>
+  <text x="560" y="435" class="h">CURRENCY WATCH</text>
+  <line x1="560" y1="446" x2="700" y2="446" class="divider"/>
+  <text x="560" y="468" class="mono">tax-currency-</text>
+  <text x="560" y="482" class="mono">watch.md</text>
+  <text x="560" y="500" class="small">supranational</text>
+  <text x="560" y="514" class="small">(OECD · EU)</text>
+  <text x="560" y="540" class="small">90-day staleness</text>
+  <text x="560" y="554" class="small">check at read</text>
+
+  <!-- Critics -->
+  <rect x="740" y="410" width="340" height="170" class="box"/>
+  <text x="760" y="435" class="h">CRITICS  ·  TRANSVERSAL  ·  6</text>
+  <line x1="760" y1="446" x2="1060" y2="446" class="divider"/>
+  <text x="760" y="468" class="mono">critic-citation-exactness</text>
+  <text x="760" y="486" class="mono">critic-currency-watch</text>
+  <text x="760" y="504" class="mono">critic-reviewer-note</text>
+  <text x="760" y="522" class="mono">critic-decision-tree</text>
+  <text x="760" y="540" class="mono">critic-finding-state</text>
+  <text x="760" y="558" class="mono">critic-cross-matter-leak</text>
+  <text x="1010" y="572" class="small" text-anchor="end">terminal · returns verdict</text>
+
+  <!-- arrows down from critics + profile + currency to deliverable -->
+  <path d="M 880 580 L 880 622 L 600 622 L 600 650" class="arrow" marker-end="url(#arrow)"/>
+  <text x="890" y="608" class="sub">VERDICT</text>
+
+  <!-- DELIVERABLE -->
+  <rect x="350" y="650" width="500" height="100" class="box"/>
+  <text x="370" y="678" class="h">DELIVERABLE  +  DECISION TREE CLOSE</text>
+  <line x1="370" y1="689" x2="830" y2="689" class="divider"/>
+  <text x="370" y="712" class="mono">matters/&lt;id&gt;/findings/&lt;workstream&gt;/...</text>
+  <text x="370" y="730" class="small">reviewer-note header · 4-state findings · ≥3 actionable branches</text>
+
+  <!-- side annotation: matter -->
+  <rect x="120" y="650" width="200" height="100" class="box-sub"/>
+  <text x="140" y="678" class="h">ACTIVE MATTER</text>
+  <line x1="140" y1="689" x2="300" y2="689" class="divider"/>
+  <text x="140" y="712" class="mono">matters/&lt;slug&gt;/</text>
+  <text x="140" y="730" class="small">matter.md · verification-log.md</text>
+  <text x="140" y="744" class="small">history.md · findings/ · inputs/</text>
+  <line x1="320" y1="700" x2="349" y2="700" class="arrow-l" marker-end="url(#arrow-l)"/>
+
+  <!-- post_task hook -->
+  <line x1="600" y1="750" x2="600" y2="788" class="arrow" marker-end="url(#arrow)"/>
+  <text x="610" y="773" class="sub">EVERY TASK CALL</text>
+
+  <rect x="475" y="790" width="250" height="50" class="box"/>
+  <text x="600" y="810" text-anchor="middle" class="h">POSTTOOLUSE HOOK</text>
+  <text x="600" y="826" text-anchor="middle" class="mono">hooks/post_task.py</text>
+
+  <!-- arrow to audit log -->
+  <line x1="600" y1="840" x2="600" y2="878" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="350" y="880" width="500" height="60" class="box-sub"/>
+  <text x="370" y="906" class="h">AUDIT LOG  ·  METADATA + HASHES ONLY</text>
+  <text x="370" y="928" class="mono">orchestrate/audit/handoff-audit.jsonl   (rotates at 5 MiB)</text>
+
+  <!-- footer divider + caption -->
+  <line x1="100" y1="958" x2="1100" y2="958" class="divider"/>
+</svg>

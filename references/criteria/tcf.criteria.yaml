@@ -1,0 +1,20 @@
+deliverable_type: tcf-control
+metrics:
+  - id: control_fields_complete
+    rule: control_id, objective, design, frequency, owner (specific role), evidence_pattern, testing_approach, maturity_target all populated
+    severity: blocker
+  - id: framework_mapping
+    rule: explicit mapping to OECD FTA building block or NL HM / HMRC / CBPT principle with citation
+    severity: blocker
+  - id: three_lines_position
+    rule: 1st/2nd/3rd line of defence position justified
+    severity: high
+  - id: evidence_testable
+    rule: evidence_pattern produces re-readable audit trail (log, signature, system output) — not "verbally confirmed"
+    severity: blocker
+  - id: maturity_calibrated
+    rule: maturity score per dimension (design, frequency, owner, evidence, independence) on 1-5 scale
+    severity: high
+  - id: sector_specific
+    rule: control adapted to client sector (not generic template)
+    severity: medium

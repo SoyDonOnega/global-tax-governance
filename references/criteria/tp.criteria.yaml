@@ -1,0 +1,29 @@
+deliverable_type: tp-section
+metrics:
+  - id: method_justified
+    rule: method elected with explicit discard of alternatives (CUP / RPM / Cost+ / TNMM / Profit Split)
+    severity: blocker
+  - id: comparables_documented
+    rule: search · screening · rejection reasons · adjustments documented per comparable
+    severity: blocker
+  - id: range_applied
+    rule: interquartile range computed; adjustment to median (vs. inside range) justified if applied
+    severity: blocker
+  - id: dempe_substantive
+    rule: for intangibles / royalties, DEMPE analysis with functional substance per entity (not legal ownership alone)
+    severity: blocker
+  - id: cap_x_for_finance
+    rule: financial transactions analyzed under OECD TPG Cap. X (2020)
+    severity: blocker
+  - id: art_18_lis_citation
+    rule: art. 18 LIS apartado relevant cited (.1 valor de mercado · .4 método · .6 financial · .11 ajuste secundario · .14 documentación)
+    severity: blocker
+  - id: cap_ix_for_restructuring
+    rule: business restructuring analyzed under Cap. IX with compensation analysis
+    severity: high
+  - id: defensibility_verdict
+    rule: skill self-runs an arm's-length stress test before close; verdict alta or media; if baja, iterate
+    severity: blocker
+  - id: currency_check
+    rule: OECD TPG version + comparables date verified
+    severity: high
