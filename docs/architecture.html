@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>global-tax-governance — architecture</title>
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --off:     #FAFAF8;
+    --line:    #CCCCCC;
+    --mute:    #666666;
+    --white:   #FFFFFF;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--off);
+    color: var(--black);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+  }
+  header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+  }
+  h1 {
+    font-size: 28px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+  .sub {
+    color: var(--mute);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  figure {
+    margin: 0 0 56px;
+    padding: 0;
+  }
+  figure img,
+  figure svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+  figcaption {
+    color: var(--mute);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 14px;
+  }
+  section {
+    margin-bottom: 56px;
+  }
+  h2 {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  p {
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 0 0 14px;
+    max-width: 80ch;
+  }
+  ol {
+    counter-reset: step;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  ol li {
+    counter-increment: step;
+    position: relative;
+    padding: 12px 0 12px 56px;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  ol li:last-child { border-bottom: none; }
+  ol li::before {
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: var(--mute);
+    letter-spacing: 1px;
+  }
+  code, .mono {
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--black);
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 1px 6px;
+    border-radius: 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-bottom: 1px solid var(--black);
+  }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+    color: var(--mute);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <h1>GLOBAL TAX GOVERNANCE</h1>
+    <div class="sub">Plugin architecture · v0.1.0</div>
+  </header>
+
+  <figure>
+    <img src="architecture.svg" alt="Runtime flow: user invokes a skill; the skill reads the practice profile, the currency watch and the active jurisdiction; the six critics validate the deliverable; the post_task hook writes the audit log."/>
+    <figcaption>Runtime flow · skill → reads → critic pass → deliverable → audit log</figcaption>
+  </figure>
+
+  <section>
+    <h2>How a skill runs</h2>
+    <ol>
+      <li>The user invokes a skill (<code>/global-tax-governance:&lt;skill&gt;</code>).</li>
+      <li>The skill reads <code>CLAUDE.md</code> (practice profile) and <code>references/jurisdictions/&lt;iso&gt;.md</code> (active jurisdiction).</li>
+      <li>It reads <code>references/resources/tax-currency-watch.md</code> and checks the 90-day staleness.</li>
+      <li>It runs its self-contained recipe: plan · draft · adversarial pass — entirely inside the skill invocation.</li>
+      <li>It delegates the close pass to the relevant transversal critics via the <code>Task</code> tool: <code>critic-citation-exactness</code>, <code>critic-currency-watch</code>, <code>critic-reviewer-note</code>, <code>critic-decision-tree</code>, and where applicable <code>critic-finding-state</code> and <code>critic-cross-matter-leak</code>.</li>
+      <li>Every <code>Task</code> call is intercepted by the <code>PostToolUse</code> hook (<code>hooks/post_task.py</code>) and written to <code>orchestrate/audit/handoff-audit.jsonl</code> as a metadata record (timestamp · source · target · prompt hash · response hash). Prompt and response bodies are never stored.</li>
+      <li>Critic verdicts return to the skill; if any blocker appears, the skill iterates. Otherwise it closes the deliverable with a decision tree carrying at least three actionable branches.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What lives where</h2>
+    <table>
+      <thead>
+        <tr><th>Location</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>skills/&lt;name&gt;/SKILL.md</code></td><td>One file per skill. Self-contained recipe with subcommands, flow, traps, deliverables, close.</td></tr>
+        <tr><td><code>agents/critic/critic-&lt;name&gt;.md</code></td><td>The six transversal critics. Invoked via the <code>Task</code> tool with <code>subagent_type=critic-&lt;name&gt;</code>.</td></tr>
+        <tr><td><code>agents/_shared/</code></td><td>Role frame · output contract · function+strategy lens. Read by every critic.</td></tr>
+        <tr><td><code>CLAUDE.md</code></td><td>Practice profile (jurisdiction-agnostic). Populated by <code>/onboarding</code> on first run.</td></tr>
+        <tr><td><code>references/jurisdictions/&lt;iso&gt;.md</code></td><td>Local source-of-law hierarchy, citation formats, tax authority, anti-hallucination guardrails. Ships with <code>es.md</code> and <code>_template.md</code>.</td></tr>
+        <tr><td><code>references/resources/tax-currency-watch.md</code></td><td>Supranational layer (OECD · EU). The local layer lives in each jurisdiction profile §5.</td></tr>
+        <tr><td><code>references/criteria/&lt;name&gt;.criteria.yaml</code></td><td>Typed quality contracts the skills self-check against (aia · disclosure · memo · tcf · tp).</td></tr>
+        <tr><td><code>references/templates/</code></td><td>Reviewer-note header · decision-tree close · verification log · company profile.</td></tr>
+        <tr><td><code>hooks/post_task.py</code></td><td>The only hook. Audit log writer. Rotation at <code>GTG_AUDIT_ROTATE_BYTES</code>.</td></tr>
+        <tr><td><code>orchestrate/orchestrate.py</code></td><td>CLI validator + replay tool. Three intents: <code>critic_check</code>, <code>request_clarification</code>, <code>escalate_to_human</code>.</td></tr>
+        <tr><td><code>matters/&lt;slug&gt;/</code></td><td>Per-client/per-assignment workspace. Isolated by default (<code>Cross-matter context: off</code>). Never committed.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>The audit log discipline</h2>
+    <p>Every <code>Task</code> call to any sub-agent (plugin critic or otherwise) is appended to the audit log with metadata only: timestamp, source agent, target agent, SHA-256 hash of the prompt, SHA-256 hash of the response, response length in characters. The hashes let you prove the same call was made twice without storing the body — important when the body is privileged client work product.</p>
+    <p>Inspect: <code>python orchestrate/orchestrate.py --replay orchestrate/audit/handoff-audit.jsonl</code></p>
+    <p>The active log rotates to <code>handoff-audit.&lt;UTC&gt;.jsonl</code> when it crosses <code>GTG_AUDIT_ROTATE_BYTES</code> (default 5 MiB). Rotation is best-effort: if the rename fails, the hook continues appending to the active file rather than dropping records.</p>
+  </section>
+
+  <footer>
+    global-tax-governance · MIT · runtime: audit-only · no telemetry · no payload bodies persisted
+  </footer>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SoyDonOnega/global-tax-governance/references/handoff-schemas/intents.schema.json",
+  "title": "Handoff Intent Envelope",
+  "description": "Outer envelope for every cross-agent handoff. The orchestrator validates this then dispatches to the per-intent payload schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["intent", "target_agent", "source_agent", "params"],
+  "properties": {
+    "type": {
+      "const": "handoff_request",
+      "description": "Tag for regex extraction from agent stdout."
+    },
+    "intent": {
+      "type": "string",
+      "enum": [
+        "critic_check",
+        "request_clarification",
+        "escalate_to_human"
+      ]
+    },
+    "source_agent": {
+      "type": "string",
+      "maxLength": 80,
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Slug of the emitting agent. Must match a file under agents/."
+    },
+    "target_agent": {
+      "type": "string",
+      "maxLength": 80,
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Slug of the destination agent. Must be in ALLOWED_TARGETS (discovered from agents/)."
+    },
+    "params": {
+      "type": "object",
+      "description": "Intent-specific parameters. Validated against payloads/<intent>.schema.json."
+    },
+    "event": {
+      "type": "string",
+      "maxLength": 2000,
+      "description": "Optional free-text context. Sanitized + wrapped in <agent-handoff> data frame before reaching target."
+    }
+  }
+}

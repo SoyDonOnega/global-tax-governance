@@ -1,0 +1,23 @@
+deliverable_type: public-disclosure
+metrics:
+  - id: mandatory_items
+    rule: every legally mandatory item included (Directiva 2021/2101 article references)
+    severity: blocker
+  - id: reconciliation
+    rule: CbCR figures reconcile to consolidated statements with methodology note
+    severity: blocker
+  - id: low_etr_explained
+    rule: any jurisdiction with ETR <12% has substance narrative
+    severity: high
+  - id: gri_207_complete
+    rule: if GRI 207 elected, disclosures 207-1 through 207-4 all addressed
+    severity: blocker
+  - id: peer_benchmark
+    rule: peer practice considered for voluntary disclosures
+    severity: medium
+  - id: disclosure_risk_evaluated
+    rule: skill self-runs a disclosure-risk pass (reputational + regulatory + competitive); Low or Medium ok, High triggers escalation
+    severity: blocker
+  - id: precedent_aware
+    rule: voluntary narrative considers precedent for future periods
+    severity: high

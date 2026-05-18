@@ -1,0 +1,26 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "SoyDonOnega-global-tax-governance",
+  "description": "Tax governance skill library for senior practitioners — Pillar Two, transfer pricing, TCF, DAC, CbCR, audit defense, AI Act. Thirteen skills with six transversal critics. Jurisdiction-agnostic profile; Spain ships as seed.",
+  "owner": {
+    "name": "SoyDonOnega"
+  },
+  "plugins": [
+    {
+      "name": "global-tax-governance",
+      "description": "Tax governance skill library for senior practitioners — Pillar Two, transfer pricing, TCF, DAC, CbCR, audit defense, AI Act in the tax function. Thirteen skills with six transversal critics. Jurisdiction-agnostic profile customizable through a cold-start interview; Spain ships as the seed profile.",
+      "author": {
+        "name": "SoyDonOnega"
+      },
+      "category": "legal",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/SoyDonOnega/global-tax-governance.git",
+        "path": "",
+        "ref": "main",
+        "sha": "d1694353d65972521c2f099819bc8a36a5affc23"
+      },
+      "homepage": "https://github.com/SoyDonOnega/global-tax-governance"
+    }
+  ]
+}

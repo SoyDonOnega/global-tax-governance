@@ -1,0 +1,60 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Orchestrator syntax
+        run: python -m py_compile orchestrate/*.py
+
+      - name: Validate intents JSON Schema
+        run: |
+          python - <<'PY'
+          import json, glob
+          from jsonschema import Draft202012Validator
+          Draft202012Validator.check_schema(
+              json.load(open("references/handoff-schemas/intents.schema.json"))
+          )
+          for path in glob.glob("references/handoff-schemas/payloads/*.json"):
+              Draft202012Validator.check_schema(json.load(open(path)))
+          print("schemas ok")
+          PY
+
+      - name: Validate YAML (sprint contracts · criteria · allowlist)
+        run: |
+          python - <<'PY'
+          import glob, yaml
+          paths = (
+              glob.glob("references/sprint-contracts/*.yaml")
+              + glob.glob("references/criteria/*.yaml")
+              + ["orchestrate/allowlist.yaml"]
+          )
+          for p in paths:
+              with open(p) as f:
+                  yaml.safe_load(f)
+          print(f"{len(paths)} yaml files ok")
+          PY
+
+      - name: Run smoke tests
+        run: python tests/test_contracts.py
+
+      - name: Run hook tests
+        run: python tests/test_hooks.py

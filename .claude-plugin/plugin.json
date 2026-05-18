@@ -1,0 +1,8 @@
+{
+  "name": "global-tax-governance",
+  "version": "0.1.0",
+  "description": "Tax governance skill library for senior practitioners — Pillar Two, transfer pricing, TCF, DAC, CbCR, audit defense, AI Act in the tax function. Thirteen skills with six transversal critics. Jurisdiction-agnostic profile customizable through cold-start interview; Spain ships as seed profile.",
+  "author": {
+    "name": "SoyDonOnega"
+  }
+}

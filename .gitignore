@@ -1,0 +1,51 @@
+# Runtime outputs (not source)
+/out/
+/orchestrate/audit/*.jsonl
+
+# Matters — confidential client data
+/matters/
+**/matters/
+
+# Local overrides
+*.local.md
+*.local.yaml
+*.local.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.python-version
+
+# Env / secrets
+.env
+.env.*
+secrets.yaml
+credentials.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build artifacts
+*.plugin
+dist/
+build/
+
+# Excel locks
+~$*.xlsx
+~$*.xlsm
+~$*.docx
+
+# Test inputs / sandbox
+/sandbox/
+*_test.xlsx
+*_sandbox/

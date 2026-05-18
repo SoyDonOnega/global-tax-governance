@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "critic_check params",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["deliverable_path", "critic_name"],
+  "properties": {
+    "deliverable_path": {"type": "string", "maxLength": 256, "pattern": "^[A-Za-z0-9_./:-]+$"},
+    "critic_name":      {"type": "string", "enum": ["critic-currency-watch","critic-citation-exactness","critic-reviewer-note","critic-decision-tree","critic-finding-state","critic-cross-matter-leak"]},
+    "note":             {"type": "string", "maxLength": 500}
+  }
+}

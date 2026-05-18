@@ -1,0 +1,35 @@
+MIT License
+
+Copyright (c) 2026 SoyDonOnega
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+This plugin contains substantive Spanish tax law guidance that is jurisdiction-specific
+and time-sensitive. Citations to Spanish primary sources (LIS, LIVA, LIRPF, LGT,
+DGT consultas, TEAC resolutions, Tribunal Supremo judgments) and EU/OECD instruments
+(Directives, Model Rules, BEPS guidance) reflect the state at the time of writing.
+Users are responsible for verifying current status before relying on any guidance
+for client work. See `references/resources/tax-currency-watch.md` for the staleness
+protocol.
+
+The plugin is provided as a tool to support tax practitioners; it does not replace
+professional judgment, and outputs require human verification before use in
+client deliverables.

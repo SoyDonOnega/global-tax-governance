@@ -1,0 +1,107 @@
+deliverable_type: benefit-test-memo
+description: >
+  Validation contract for the benefit / willingness-to-pay test on
+  intercompany service charges (OECD TPG Chapter VII). Applied by
+  /global-tax-governance:tp-analysis benefit-test <category> at the
+  close pass.
+metrics:
+  - id: oecd_chapter_vii_framing
+    rule: memo opens with the Chapter VII framing (benefit test + WTP
+      equivalence) and lists the five exclusions before any per-category
+      analysis
+    severity: blocker
+
+  - id: shareholder_activity_excluded
+    rule: each charged category is explicitly tested against the
+      shareholder-activity exclusion with a written conclusion
+    severity: blocker
+
+  - id: duplication_excluded
+    rule: each charged category is explicitly tested against the
+      duplication exclusion with a written conclusion
+    severity: blocker
+
+  - id: incidental_benefit_excluded
+    rule: each charged category is explicitly tested against the
+      incidental-benefit exclusion with a written conclusion
+    severity: blocker
+
+  - id: on_call_actual_use_evidenced
+    rule: where the charge covers on-call availability, evidence the
+      service was effectively available and used in the period; empty
+      on-call fails
+    severity: blocker
+
+  - id: passive_association_excluded
+    rule: each charged category is explicitly tested against the
+      passive-association exclusion (group rating, brand spillover);
+      passive uplift is not a service
+    severity: blocker
+
+  - id: wtp_evidence_per_category
+    rule: at least one verbatim-cited email/contract excerpt per
+      surviving category demonstrating one or more of (request,
+      acknowledgement of value, specification, delivery confirmation,
+      cost-base trace, repeat-purchase pattern)
+    severity: blocker
+
+  - id: evidence_citation_format
+    rule: every cited evidence row carries date, sender, recipient,
+      subject and a verbatim quote with source location
+      (inputs/intercompany-emails/<category>/<file>#L<line>); no paraphrase
+      passed as literal
+    severity: blocker
+
+  - id: cost_base_trace
+    rule: each cost element in the charge maps to a documented work
+      item; pure overhead allocation without work mapping fails
+    severity: blocker
+
+  - id: simplified_approach_eligibility
+    rule: if the simplified approach (OECD TPG §7.43-7.65) is elected,
+      verify the local jurisdiction has adopted it and the category is
+      a qualifying activity (§7.45); non-qualifying categories require
+      full TP analysis
+    severity: high
+
+  - id: mark_up_consistency
+    rule: applied mark-up is consistent with the elected approach
+      (5% under simplified) or supported by a benchmarking analysis
+      (otherwise)
+    severity: high
+
+  - id: per_category_verdict_state
+    rule: every service category carries a verdict (pass / pass with
+      conditions / partial fail / fail); never blank — aligns with the
+      four finding states
+    severity: blocker
+
+  - id: gap_list_when_partial
+    rule: for any verdict other than full pass, the deliverable lists
+      the specific gap(s) and what would close them (e.g. specific
+      acknowledgement to request from <party>)
+    severity: blocker
+
+  - id: jurisdiction_doctrine_check
+    rule: local administrative or judicial criteria on intra-group
+      services are cited and current (e.g. for ES, DGT consultas on
+      Art. 18 LIS service charges, TEAC resolutions on Art. 15.e LIS
+      deductibility); cross-checked against the jurisdiction profile
+    severity: high
+
+  - id: cross_matter_leak_check
+    rule: critic-cross-matter-leak passes — no reference to email
+      corpora from other matters when Cross-matter context is off
+    severity: blocker
+
+  - id: roll_up_summary_present
+    rule: when more than one category is analysed, a benefit-test-summary
+      deliverable rolls up the per-category verdicts into a matrix
+      with deductible / non-deductible breakdown
+    severity: high
+
+  - id: defense_pack_ready
+    rule: deliverables are structured so the summary memo + evidence
+      grids can be lifted directly into an audit-defense submission
+      without restructuring
+    severity: medium

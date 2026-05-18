@@ -1,0 +1,26 @@
+# Per-origin handoff matrix
+#
+# Single-tier: skills run as self-contained recipes and may invoke one
+# of the six transversal critics. The allowlist is therefore short —
+# any skill is allowed to call any critic.
+#
+# Format: `<source>: [<allowed target>, ...]`. The pseudo-source `skill-*`
+# matches any source whose slug starts with `skill-` (i.e. the active
+# skill identifying itself in a critic_check handoff). Critics never
+# delegate further; they return a verdict to the calling skill.
+
+"skill-*":
+  - critic-citation-exactness
+  - critic-currency-watch
+  - critic-reviewer-note
+  - critic-decision-tree
+  - critic-finding-state
+  - critic-cross-matter-leak
+
+# Critics are terminal — they do not delegate to other agents.
+critic-citation-exactness:   []
+critic-currency-watch:       []
+critic-reviewer-note:        []
+critic-decision-tree:        []
+critic-finding-state:        []
+critic-cross-matter-leak:    []

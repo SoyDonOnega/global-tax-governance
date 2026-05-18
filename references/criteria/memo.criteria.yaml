@@ -1,0 +1,32 @@
+deliverable_type: memo
+metrics:
+  - id: exact_citation_present
+    rule: every claim of law has citation with article + paragraph; jurisprudence with ECLI; DGT with V-NNNN-AA; TEAC with RG NNNN/AAAA
+    severity: blocker
+  - id: source_typing
+    rule: every claim explicitly typed as (i) norma vigente | (ii) criterio administrativo | (iii) jurisprudencia | (iv) doctrina | (v) opinión propia
+    severity: blocker
+  - id: currency_check_done
+    rule: every cited date / threshold / criterio in moving areas matches tax-currency-watch within 90 days
+    severity: blocker
+  - id: reviewer_note_complete
+    rule: header populated with sources · coverage · flags · currency check · before acting
+    severity: blocker
+  - id: decision_tree_options
+    rule: closing decision tree has >=3 concrete branches
+    severity: blocker
+  - id: finding_state
+    rule: every uncertain finding labelled (answered/not_present/unclear/needs_review)
+    severity: high
+  - id: strategy_angle_present
+    rule: strategy_angle section present and substantive (1-3 paragraphs, not boilerplate)
+    severity: high
+  - id: function_lens_present
+    rule: function_lens section present (consumer, ciclo, KPI)
+    severity: high
+  - id: hedging_appropriate
+    rule: no gratuitous hedging when answer is clear; hedge only with normative uncertainty
+    severity: medium
+  - id: bw_aesthetic
+    rule: no color or emoji in markdown output
+    severity: medium

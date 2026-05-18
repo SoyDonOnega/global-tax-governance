@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "request_clarification params",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["question", "blocking"],
+  "properties": {
+    "question":  {"type": "string", "maxLength": 800},
+    "blocking":  {"type": "boolean"},
+    "sprint_id": {"type": "string", "maxLength": 120, "pattern": "^[A-Za-z0-9._-]+$"}
+  }
+}
